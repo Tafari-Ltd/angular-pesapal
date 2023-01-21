@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import {  IKeys, IPayments } from './pesapal.data';
+import { IKeys, IPayments } from './pesapal.data';
 import { PESAPAL_CONSUMERS } from './pesapal.token';
 
 @Injectable({
@@ -13,7 +13,6 @@ export class PesapalPayService {
     private http: HttpClient,
     @Inject(PESAPAL_CONSUMERS) private token: any,
   ) {
-    console.log(token)
     localStorage.setItem("ipn", token.ipn_id)
    }
 

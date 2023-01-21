@@ -10,20 +10,23 @@
 npm install pesapal-payments
 ```
 
-Register your IPN URL [here](https://pay.pesapal.com/iframe/PesapalIframe3/IpnRegistration) 
+
 
 ### 2. Import the module
+> Register your IPN URL [here](https://pay.pesapal.com/iframe/PesapalIframe3/IpnRegistration) 
+
+
 In your `app.module.ts` or any module where the component or directive would be used like so:
 
 ```ts
 import { NgModule } from '@angular/core';
 
-import { PesapalPaymentsModule } from 'pesapal-payments';
+import { PesapalPayModule } from 'pesapal-pay';
 ...
 
 @NgModule({
   imports: [
-    PesapalPaymentsModule.forRoot(
+    PesapalPayModule.forRoot(
       "<your consumer key>",
       "<your consumer secret>",
       "<your IPN ID>"
@@ -93,12 +96,12 @@ In your `.html` file,
         <input [formControl]="form.controls.currency" type="text" placeholder="currency">
         <input [formControl]="form.controls.description" type="text" placeholder="description">
           ...
-        <pesapal-payment-button 
+        <pesapal-pay
           [amount]="Paymentform.controls['amount'].value"  
           [currency]="Paymentform.controls['currency'].value" 
           [description]="Paymentform.controls['description'].value" 
         ...
-        ></pesapal-payment-button>
+        ></pesapal-pay>
     </form>
   ```
 
