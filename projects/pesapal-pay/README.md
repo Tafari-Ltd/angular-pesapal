@@ -1,7 +1,7 @@
 # PesapalPayments
 
 
-> This is an angular module that abstracts the complexity of making Pesapal payments with Angular14+.
+> This is an angular module that abstracts the complexity of making Pesapal payments with Angular.
 
 ## USAGE
 
@@ -10,7 +10,7 @@
 npm install pesapal-payments
 ```
 
-Register your IPN URL [here](https://pay.pesapal.com/iframe/PesapalIframe3/IpnRegistration) 
+ > Register your IPN URL [here](https://pay.pesapal.com/iframe/PesapalIframe3/IpnRegistration) 
 
 ### 2. Import the module
 In your `app.module.ts` or any module where the component or directive would be used like so:
