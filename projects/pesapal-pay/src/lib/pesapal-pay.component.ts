@@ -4,10 +4,10 @@ import { PesapalPayService } from './pesapal-pay.service';
 @Component({
   selector: 'pesapal-pay',
   template: `
-  <button class="pesapal-pay-button" (click)="makePayment()">Pay with Pesapal</button>
+  <button [ngClass]="class" [ngStyle]="styles" [disabled]="disabled" (click)="makePayment()">{{button_text}}</button>
 
   <div *ngIf="$Url">
-  <iframe width="600px" height="600px" [src]="$Url | safeUrl" frameborder="0"></iframe>
+    <iframe width="{{iframe_width}}" height="{{iframe_height}}" [src]="$Url | safeUrl" frameborder="0"></iframe>
   </div>
   `,
   styles: [
@@ -25,17 +25,25 @@ export class PesapalPayComponent  {
   // billing address
   @Input() phone_number!: number
   @Input() email_address!: string
-  @Input() country_code?: string
-  @Input() first_name?: string
-  @Input() middle_name?: string
-  @Input() last_name?: string
-  @Input() line_1?: string
-  @Input() line_2?: string
-  @Input() city?: string
-  @Input() state?: string
-  @Input() postal_code?: string
-  @Input() zip_code?: string
-  @Input() cancellation_url?: string
+  @Input() country_code?: string 
+  @Input() first_name?: string 
+  @Input() middle_name?: string 
+  @Input() last_name?: string 
+  @Input() line_1?: string 
+  @Input() line_2?: string 
+  @Input() city?: string 
+  @Input() state?: string 
+  @Input() postal_code?: string 
+  @Input() zip_code?: string 
+  @Input() cancellation_url?: string 
+
+  // configs
+  @Input() disabled: boolean = false
+  @Input() button_text: string = "Pay with Pesapal"
+  @Input() class?: string 
+  @Input() styles?: any = {}
+  @Input() iframe_width: string = "600px"
+  @Input() iframe_height: string = "600px"
 
 
   $Url:string = ""
@@ -43,17 +51,17 @@ export class PesapalPayComponent  {
 
   constructor(
     private paymentService: PesapalPayService,
-  ){}
-
-
-  makePayment(){
+  ){
     this.paymentService.AuthenticateEndpoint().subscribe({
       next: (res:any) => {},
       error: (e:any) => {
         throw new Error(e)
       }
     })
+  }
 
+
+  makePayment(){
     this.paymentService.SubmitOrderRequest(
       {
         id: this.id,
@@ -82,7 +90,6 @@ export class PesapalPayComponent  {
         // do something with tracking ID
         localStorage.setItem("PIUrl", res.redirect_url)
         this.$Url = res.redirect_url
-        console.log(this.$Url)
         // this.dialog.open(PesapalIframeComponent, {
         //   height: '600px',
         //   width: '600px',
