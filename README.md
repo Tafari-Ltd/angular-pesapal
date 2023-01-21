@@ -37,7 +37,7 @@ export class AppModule {}
 
 ### 3. Implement in your application
   ```html
-    <pesapal-payment-button 
+    <pesapal-pay
       [amount]="100"  
       [currency]="'KES'" 
       [description]="'helllo Pesapal'" 
@@ -54,7 +54,7 @@ export class AppModule {}
       [postal_code]="" 
       [zip_code]="" 
       [cancellation_url]=""
-    ></pesapal-payment-button>
+    ></pesapal-pay>
   ```
    Clicking the button will render a dialog popup with Pesapal's payment iframe
   > For more information check out [Pesapal's documentation](https://developer.pesapal.com)

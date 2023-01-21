@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { PesapalPayService } from './pesapal-pay.service';
 
 @Component({
