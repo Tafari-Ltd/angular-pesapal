@@ -1,21 +1,18 @@
 # PesapalPayments
 
 
-> This is an angular module that abstracts the complexity of making Pesapal payments with Angular14+.
+> This is an angular module that abstracts the complexity of making Pesapal payments with Angular.
 
 ## USAGE
 
 ### 1. Install the module
 ```sh
-npm install pesapal-payments
+npm install pesapal-pay
 ```
 
-
+ > Register your IPN URL [here](https://pay.pesapal.com/iframe/PesapalIframe3/IpnRegistration) 
 
 ### 2. Import the module
-> Register your IPN URL [here](https://pay.pesapal.com/iframe/PesapalIframe3/IpnRegistration) 
-
-
 In your `app.module.ts` or any module where the component or directive would be used like so:
 
 ```ts
@@ -26,7 +23,7 @@ import { PesapalPayModule } from 'pesapal-pay';
 
 @NgModule({
   imports: [
-    PesapalPayModule.forRoot(
+    PesapalPaymentsModule.forRoot(
       "<your consumer key>",
       "<your consumer secret>",
       "<your IPN ID>"
@@ -48,15 +45,22 @@ export class AppModule {}
       [phone_number]="0712345678" 
       [email_address]="'test@mail.com'" 
       [last_name]="''" 
+      [country_code]="''"
       [first_name]="''" 
       [middle_name]="''"
-      [line_1]="" 
-      [line_2]="" 
-      [city]="" 
-      [state]="" 
-      [postal_code]="" 
-      [zip_code]="" 
-      [cancellation_url]=""
+      [line_1]="''" 
+      [line_2]="''" 
+      [city]="''" 
+      [state]="''" 
+      [postal_code]="''" 
+      [zip_code]="''" 
+      [cancellation_url]="''"
+      [disabled]="false"
+      [button_text]="'Donate'"
+      [class]="''"
+      [styles]="{'background-color': 'pink', 'font-size': '16px'}"
+      [iframe_width]="''"
+      [iframe_height]="''"
     ></pesapal-pay>
   ```
    Clicking the button will render a dialog popup with Pesapal's payment iframe
@@ -64,10 +68,26 @@ export class AppModule {}
 
   ## OPTIONS
 
-| Name       | Default Value                                                     |
-|------------|-------------------------------------------------------------------|
-| `id`       | Date.now().toString(36) + Math.random().toString(36).substring(2) |
-| `currency` | 'KES'                                                             |
+| Name           | Default Value                                                     |
+|----------------|-------------------------------------------------------------------|
+| `id`           | Date.now().toString(36) + Math.random().toString(36).substring(2) |
+| `currency`     | 'KES'                                                             |
+| `button_text`  | 'Pay with Pesapal'                                                |
+| `iframe_width` | '600px'                                                           |
+| `iframe_height`| '600px'                                                           |
+
+
+ ## PROPERTIES
+
+|Name                            |Description                          |
+|--------------------------------|-------------------------------------|
+| @Input() disabled: boolean     | Whether the component is disabled  |
+| @Input() button_text: string   | Button text to be displayed         |
+| @Input() class: string         | Button's class name                 |
+| @Input() styles: any           | Custom button styles                |
+| @Input() iframe_width: string  | iframe width                        |
+| @Input() iframe_height: string | iframe height                       |
+
 
 
   ### 4. Example using Angular Forms
@@ -96,12 +116,12 @@ In your `.html` file,
         <input [formControl]="form.controls.currency" type="text" placeholder="currency">
         <input [formControl]="form.controls.description" type="text" placeholder="description">
           ...
-        <pesapal-pay
+        <pesapal-pay 
           [amount]="Paymentform.controls['amount'].value"  
           [currency]="Paymentform.controls['currency'].value" 
           [description]="Paymentform.controls['description'].value" 
         ...
-        ></pesapal-pay>
+        ></ppesapal-pay>
     </form>
   ```
 
