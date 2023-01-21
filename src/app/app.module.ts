@@ -15,9 +15,9 @@ import { PesapalPayModule } from 'projects/pesapal-pay/src/public-api';
     BrowserModule,
     AppRoutingModule,
     PesapalPayModule.forRoot(
-      'NbSbNpAJxxPcT3Yn36w5BqAEuRCWBykD',
-      'GfxJU1ffnNDeZw5Guz7CfRPu+u0=',
-      '2ad982cd-6de7-455b-adb1-dff6bfacaeb4'
+      '',
+      '',
+      ''
     )
   ],
   providers: [],
