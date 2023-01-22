@@ -198,8 +198,8 @@ export class AppModule {}
         <td>Button class name</td>
     </tr>
     <tr>
-        <td>@Input() styles: any = {}</td>
-        <td>undefined</td>
+        <td>@Input() styles: object</td>
+        <td>{}</td>
         <td>false</td>
         <td>CSS stylings, eg {fontColor: 'red'} (not available for inline embed)</td>
     </tr>
