@@ -66,27 +66,40 @@ export class AppModule {}
    Clicking the button will render a Pesapal's payment iframe
   > For more information check out [Pesapal's documentation](https://developer.pesapal.com)
 
-  ## OPTIONS
-
-| Name           | Default Value                                                     |
-|----------------|-------------------------------------------------------------------|
-| `id`           | Date.now().toString(36) + Math.random().toString(36).substring(2) |
-| `currency`     | 'KES'                                                             |
-| `button_text`  | 'Pay with Pesapal'                                                |
-| `iframe_width` | '600px'                                                           |
-| `iframe_height`| '600px'                                                           |
 
 
  ## PROPERTIES
 
-|Name                            |Description                          |
-|--------------------------------|-------------------------------------|
-| @Input() disabled: boolean     | Whether the component is disabled  |
-| @Input() button_text: string   | Button text to be displayed         |
-| @Input() class: string         | Button's class name                 |
-| @Input() styles: any           | Custom button styles                |
-| @Input() iframe_width: string  | iframe width                        |
-| @Input() iframe_height: string | iframe height                       |
+| Name                                | Default Value                                                       | Required | Description                                                                                                            |
+|-------------------------------------|---------------------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------|
+| @Input() id: string                 | `Date.now().toString(36) + Math.random().toString(36).substring(2)` | true     | Unique merchant reference                                                                                              |
+| @Input() currency: string           | `KES`                                                               | true     | Transaction currency                                                                                                   |
+| @Input() amount: number             | undefined                                                           | true     | Amount to be processed.                                                                                                |
+| @Input() description: string        | undefined                                                           | true     | Order description. `maximum - 100 characters`                                                                          |
+| @Input() callback_url: string       | undefined                                                           | true     | A valid URL which Pesapal will redirect your clients to processing the payment.                                        |
+| @Input() notification_id: string    | `IPN ID`                                                            | true     | An IPN URL which Pesapal will send notifications to after payments have been processed.                                |
+| @Input() phone_number: number       | undefined                                                           | true     | Customer's phone number                                                                                                |
+| @Input() email_address: string      | undefined                                                           | true     | Customer's email address                                                                                               |
+| @Input() country_code: string       | undefined                                                           | false    | 2 characters long country code in `[ISO 3166-1]`                                                                       |
+| @Input() first_name: string         | undefined                                                           | false    | Customer's first name                                                                                                  |
+| @Input() middle_name: string        | undefined                                                           | false    | Customer's middle name                                                                                                 |
+| @Input() last_name: string          | undefined                                                           | false    | Customer's last name                                                                                                   |
+| @Input() line_1: string             | undefined                                                           | false    | Customer's main address                                                                                                |
+| @Input() line_2: string             | undefined                                                           | false    | Customer's alternative address                                                                                         |
+| @Input() city: string               | undefined                                                           | false    | Customer's city                                                                                                        |
+| @Input() state: string              | undefined                                                           | false    | Customer's state Maximum - `3 characters`                                                                              |
+| @Input() postal_code: string        | undefined                                                           | false    | Customer's postal code                                                                                                 |
+| @Input() zip_code: string           | undefined                                                           | false    | Customer's zip code                                                                                                    |
+| @Input() cancellation_url: string   | undefined                                                           | false    | A valid URL which Pesapal will redirect your clients to incase they click on cancel request while on the Payment link. |
+| @Input() disabled: boolean          | `false`                                                             | false    | Whether the component is disabled.
+
+                                                                                   |
+| @Input() button_text: string        | `Pay with Pesapal`                                                  | false    | Button text button                                                                                                     |
+| @Input() class: string              | undefined                                                           | false    | Button class name                                                                                                      |
+| @Input() styles: any = {}           | undefined                                                           | false    | CSS stylings, eg {fontColor: 'red'} (not available for inline embed)                                                   |
+| @Input() iframe_width: string       | `600px`                                                             | false    | iframe width                                                                                                           |
+| @Input() iframe_height: string      | `600px`                                                             | false    | iframe height                                                                                                          |
+
 
 
 
