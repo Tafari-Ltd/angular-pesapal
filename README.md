@@ -57,7 +57,7 @@ export class AppModule {}
 
 | Name                                | Default Value                                                       | Required | Description                                                                                                            |
 |-------------------------------------|---------------------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------|
-| @Input() id: string                 | Date.now().toString(36) + Math.random().toString(36).substring(2) | true     | Unique merchant reference                                                                                              |
+| @Input() id: string                 | `Date.now().toString(36) + Math.random().toString(36).substring(2)` | true     | Unique merchant reference                                                                                              |
 | @Input() currency: string           | `KES`                                                               | true     | Transaction currency                                                                                                   |
 | @Input() amount: number             | undefined                                                           | true     | Amount to be processed.                                                                                                |
 | @Input() description: string        | undefined                                                           | true     | Order description. `maximum - 100 characters`                                                                          |
@@ -83,7 +83,7 @@ export class AppModule {}
 | @Input() class: string              | undefined                                                           | false    | Button class name                                                                                                      |
 | @Input() styles: any = {}           | undefined                                                           | false    | CSS stylings, eg {fontColor: 'red'} (not available for inline embed)                                                   |
 | @Input() iframe_width: string       | `600px`                                                             | false    | iframe width                                                                                                           |
-| @Input() iframe_height: string      | `600px`                                                             | false    | iframe height                                                                                                          
+| @Input() iframe_height: string      | `600px`                                                             | false    | iframe height                                                                                                          |
 
 
 
