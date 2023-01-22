@@ -23,7 +23,7 @@ import { PesapalPayModule } from 'pesapal-pay';
 
 @NgModule({
   imports: [
-    PesapalPaymentsModule.forRoot(
+    PesapalPayModule.forRoot(
       "<your consumer key>",
       "<your consumer secret>",
       "<your IPN ID>"
@@ -63,7 +63,7 @@ export class AppModule {}
       [iframe_height]="''"
     ></pesapal-pay>
   ```
-   Clicking the button will render a dialog popup with Pesapal's payment iframe
+   Clicking the button will render a Pesapal's payment iframe
   > For more information check out [Pesapal's documentation](https://developer.pesapal.com)
 
   ## OPTIONS
