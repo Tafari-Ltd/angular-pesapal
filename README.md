@@ -55,37 +55,167 @@ export class AppModule {}
 
  ## PROPERTIES
 
-| Name                                | Default Value                                                   | Required | Description                                                                                                            |
-|-------------------------------------|-----------------------------------------------------------------|----------|------------------------------------------------------------------------------------------------------------------------|
-| @Input() id: string                 | Date.now().toString(36).Math.random().toString(36).substring(2) | true     | Unique merchant reference                                                                                              |
-| @Input() currency: string           | `KES`                                                           | true     | Transaction currency                                                                                                   |
-| @Input() amount: number             | undefined                                                       | true     | Amount to be processed.                                                                                                |
-| @Input() description: string        | undefined                                                       | true     | Order description. `maximum - 100 characters`                                                                          |
-| @Input() callback_url: string       | undefined                                                       | true     | A valid URL which Pesapal will redirect your clients to processing the payment.                                        |
-| @Input() notification_id: string    | `IPN ID`                                                        | true     | An IPN URL which Pesapal will send notifications to after payments have been processed.                                |
-| @Input() phone_number: number       | undefined                                                       | true     | Customer's phone number                                                                                                |
-| @Input() email_address: string      | undefined                                                       | true     | Customer's email address                                                                                               |
-| @Input() country_code: string       | undefined                                                       | false    | 2 characters long country code in `[ISO 3166-1]`                                                                       |
-| @Input() first_name: string         | undefined                                                       | false    | Customer's first name                                                                                                  |
-| @Input() middle_name: string        | undefined                                                       | false    | Customer's middle name                                                                                                 |
-| @Input() last_name: string          | undefined                                                       | false    | Customer's last name                                                                                                   |
-| @Input() line_1: string             | undefined                                                       | false    | Customer's main address                                                                                                |
-| @Input() line_2: string             | undefined                                                       | false    | Customer's alternative address                                                                                         |
-| @Input() city: string               | undefined                                                       | false    | Customer's city                                                                                                        |
-| @Input() state: string              | undefined                                                       | false    | Customer's state Maximum - `3 characters`                                                                              |
-| @Input() postal_code: string        | undefined                                                       | false    | Customer's postal code                                                                                                 |
-| @Input() zip_code: string           | undefined                                                       | false    | Customer's zip code                                                                                                    |
-| @Input() cancellation_url: string   | undefined                                                       | false    | A valid URL which Pesapal will redirect your clients to incase they click on cancel request while on the Payment link. |
-| @Input() disabled: boolean          | `false`                                                         | false    | Whether the component is disabled.
 
-                                                                                   |
-| @Input() button_text: string        | `Pay with Pesapal`                                              | false    | Button text button                                                                                                     |
-| @Input() class: string              | undefined                                                       | false    | Button class name                                                                                                      |
-| @Input() styles: any = {}           | undefined                                                       | false    | CSS stylings, eg {fontColor: 'red'} (not available for inline embed)                                                   |
-| @Input() iframe_width: string       | `600px`                                                         | false    | iframe width                                                                                                           |
-| @Input() iframe_height: string      | `600px`                                                         | false    | iframe height                                                                                                          |
+<table>
+    <tr>
+        <td>Name</td>
+        <td>Default Value</td>
+        <td>Required</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <td>@Input() id: string</td>
+        <td>Date.now().toString(36)<br>.Math.random()<br>.toString(36)<br>.substring(2)</td>
+        <td>true</td>
+        <td>Unique merchant reference</td>
+    </tr>
+    <tr>
+        <td>@Input() currency: string</td>
+        <td>`KES`</td>
+        <td>true</td>
+        <td>Transaction currency </td>
+    </tr>
+    <tr>
+        <td>@Input() amount: number</td>
+        <td>undefined</td>
+        <td>true</td>
+        <td>Amount to be processed. </td>
+    </tr>
+    <tr>
+        <td>@Input() description: string</td>
+        <td>undefined</td>
+        <td>true</td>
+        <td>Order description. `maximum - 100 characters`</td>
+    </tr>
+    <tr>
+        <td>@Input() callback_url: string</td>
+        <td>undefined</td>
+        <td>true</td>
+        <td>A valid URL which Pesapal will redirect your clients to processing the payment.</td>
+    </tr>
+    <tr>
+        <td>@Input() notification_id: string</td>
+        <td>`IPN ID`</td>
+        <td>true</td>
+        <td>An IPN URL which Pesapal will send notifications to after payments have been processed.</td>
+    </tr>
+    <tr>
+        <td>@Input() phone_number: number</td>
+        <td>undefined</td>
+        <td>true</td>
+        <td>Customer's phone number </td>
+    </tr>
+    <tr>
+        <td>@Input() email_address: string </td>
+        <td>undefined</td>
+        <td>true</td>
+        <td>Customer's email address </td>
+    </tr>
+    <tr>
+        <td>@Input() country_code: string </td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>2 characters long country code in `[ISO 3166-1]`</td>
+    </tr>
+    <tr>
+        <td>@Input() first_name: string </td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>Customer's first name </td>
+    </tr>
+    <tr>
+        <td>@Input() middle_name: string </td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>Customer's middle name</td>
+    </tr>
+    <tr>
+        <td>@Input() last_name: string</td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>Customer's last name </td>
+    </tr>
+    <tr>
+        <td>@Input() line_1: string</td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>Customer's main address</td>
+    </tr>
+    <tr>
+        <td>@Input() line_2: string </td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>Customer's alternative address</td>
+    </tr>
+    <tr>
+        <td>@Input() city: string </td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>Customer's city </td>
+    </tr>
+    <tr>
+        <td>@Input() state: string</td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>Customer's state Maximum - `3 characters` </td>
+    </tr>
+    <tr>
+        <td>@Input() postal_code: string  </td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>Customer's postal code </td>
+    </tr>
+    <tr>
+        <td>@Input() zip_code: string  </td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>Customer's zip code </td>
+    </tr>
+    <tr>
+        <td>@Input() cancellation_url: string  </td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>A valid URL which Pesapal will redirect your clients to incase they click on cancel request while on the Payment link.</td>
+    </tr>
+    <tr>
+        <td>@Input() disabled: boolean </td>
+        <td>`false`</td>
+        <td>false</td>
+        <td>Whether the component is disabled.
 
-
+</td>
+    </tr>
+    <tr>
+        <td>@Input() button_text: string</td>
+        <td>`Pay with Pesapal`</td>
+        <td>false</td>
+        <td>Button text button</td>
+    </tr>
+    <tr>
+        <td>@Input() class: string </td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>Button class name</td>
+    </tr>
+    <tr>
+        <td>@Input() styles: any = {}</td>
+        <td>undefined</td>
+        <td>false</td>
+        <td>CSS stylings, eg {fontColor: 'red'} (not available for inline embed)</td>
+    </tr>
+    <tr>
+        <td>@Input() iframe_width: string</td>
+        <td>`600px`</td>
+        <td>false</td>
+        <td>iframe width</td>
+    </tr>
+    <tr>
+        <td>@Input() iframe_height: string </td>
+        <td>`600px`</td>
+        <td>false</td>
+        <td>iframe height</td>
+    </tr>
+</table>
 
 
   ### 4. Example using Angular Forms
