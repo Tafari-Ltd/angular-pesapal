@@ -36,19 +36,35 @@ export class AppModule {}
 
 
 ### 3. Implement in your application
-  ```html
-    <pesapal-pay
-      [amount]="100"  
-      [currency]="'KES'" 
-      [description]="'Chips funga'" 
-      [callback_url]="'http://localhost:4200/'" 
-      [phone_number]="0712345678" 
-      [email_address]="'test@mail.com'" 
-      [styles]="{'background-color': 'pink', 'font-size': '16px'}"
-      [button_text]="'Buy me coffee'"
-    ></pesapal-pay>
-  ```
-   Clicking the button will render a Pesapal's payment iframe
+ There are two available options
+
+* **PesapalPayComponent**: Renders a button which when clicked loads Pesapal in an iframe
+```html
+  <pesapal-pay
+    [amount]="100"  
+    [currency]="'KES'" 
+    [description]="'chapo'" 
+    [callback_url]="'http://localhost:4200/'" 
+    [phone_number]="0712345678" 
+    [email_address]="'test@mail.com'" 
+    [styles]="{'background-color': 'pink', 'font-size': '16px'}"
+    [button_text]="'Buy me coffee'"
+  ></pesapal-pay>
+```
+
+*  **PesapalPayDirective**: A directive that loads Pesapal in an iframe when clicked
+```html
+  <button
+    pesapal-pay
+    [amount]="100"  
+    [currency]="'KES'" 
+    [description]="'mandazi'" 
+    [callback_url]="'http://localhost:4200/'" 
+    [phone_number]="0712345678" 
+    [email_address]="'test@mail.com'" 
+  >Pay with Pesapal
+  </button>
+```
   > For more information check out [Pesapal's documentation](https://developer.pesapal.com)
 
 
