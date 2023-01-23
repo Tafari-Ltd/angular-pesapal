@@ -5,7 +5,7 @@ import { PesapalPayService } from './pesapal-pay.service';
   selector: 'pesapal-pay',
   template: `
   <button [ngClass]="class" [ngStyle]="styles" [disabled]="disabled" (click)="makePayment()">{{button_text}}</button>
-
+  
   <div *ngIf="$Url">
     <iframe width="{{iframe_width}}" height="{{iframe_height}}" [src]="$Url | safeUrl" frameborder="0"></iframe>
   </div>

@@ -6,6 +6,9 @@
         "@angular/common": "^15.1.0",
         "@angular/core": "^15.1.0"
     },
+    "bugs": {
+        "url": "https://github.com/kibetmasi/angular-pesapal/issues"
+    },
     "license": "MIT",
     "repository": {
         "type": "git",
