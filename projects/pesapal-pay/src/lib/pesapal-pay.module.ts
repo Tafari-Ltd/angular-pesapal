@@ -9,8 +9,6 @@ import { ErrorInterceptor } from './error.interceptor';
 import { PesapalPayDirective } from './pesapal-pay.directive';
 
 
-
-
 @NgModule({
   declarations: [
     IframePipe,

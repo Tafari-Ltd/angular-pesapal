@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, SecurityContext } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PesapalPayService } from './pesapal-pay.service';
 
@@ -102,5 +102,4 @@ export class PesapalPayDirective {
       }
     })
   }
-  
 }

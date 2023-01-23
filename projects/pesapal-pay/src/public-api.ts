@@ -9,3 +9,4 @@ export * from './lib/error.interceptor';
 export * from './lib/pesapal.data';
 export * from './lib/pesapal.token';
 export * from './lib/iframe.pipe';
+export * from './lib/pesapal-pay.directive';
