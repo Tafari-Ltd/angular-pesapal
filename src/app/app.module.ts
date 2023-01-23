@@ -9,7 +9,7 @@ import { PesapalPayModule } from 'projects/pesapal-pay/src/public-api';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

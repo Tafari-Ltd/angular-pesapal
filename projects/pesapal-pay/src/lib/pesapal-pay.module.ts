@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { IframePipe } from './iframe.pipe';
 import { PESAPAL_CONSUMERS } from './pesapal.token';
 import { ErrorInterceptor } from './error.interceptor';
+import { PesapalPayDirective } from './pesapal-pay.directive';
 
 
 
@@ -13,7 +14,8 @@ import { ErrorInterceptor } from './error.interceptor';
 @NgModule({
   declarations: [
     IframePipe,
-    PesapalPayComponent
+    PesapalPayComponent,
+    PesapalPayDirective
   ],
   imports: [
     CommonModule,
@@ -21,6 +23,7 @@ import { ErrorInterceptor } from './error.interceptor';
   ],
   exports: [
     PesapalPayComponent,
+    PesapalPayDirective
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
