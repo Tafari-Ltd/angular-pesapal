@@ -18,9 +18,9 @@ export class ErrorInterceptor implements HttpInterceptor {
       retry(1), //retry 2 times on error
       catchError((error:HttpErrorResponse) =>{
         if (error.status === 404){
-          return throwError("Failure fetching data. Kindly refresh your browser")
+          return throwError(JSON.stringify(error))
         } else {
-          return throwError("Something went wrong. Kindly refresh page")
+          return throwError(JSON.stringify(error))
         }
       })
     )

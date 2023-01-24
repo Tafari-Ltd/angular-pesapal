@@ -6,12 +6,20 @@ import { PesapalPayService } from './pesapal-pay.service';
   template: `
   <button [ngClass]="class" [ngStyle]="styles" [disabled]="disabled" (click)="makePayment()">{{button_text}}</button>
   
+  <div *ngIf="errorMessages == true && $Errormessages">
+    <pre>message:<code>{{$Errormessages}}</code></pre>
+  </div>
+  
   <div *ngIf="$Url">
     <iframe width="{{iframe_width}}" height="{{iframe_height}}" [src]="$Url | safeUrl" frameborder="0"></iframe>
   </div>
   `,
-  styles: [
-  ],
+  styles: [`
+    code {
+      background: #e1e1e1;
+      width: fit-content;
+    }
+  `],
 })
 
 export class PesapalPayComponent  {
@@ -44,16 +52,23 @@ export class PesapalPayComponent  {
   @Input() styles?: any = {}
   @Input() iframe_width: string = "600px"
   @Input() iframe_height: string = "600px"
-
+  @Input() errorMessages: boolean = false
 
   $Url:string = ""
+  $Errormessages:any
 
 
   constructor(
     private paymentService: PesapalPayService,
   ){
+    // this.authenticateKeys()
+  }
+
+  authenticateKeys(){
     this.paymentService.AuthenticateEndpoint().subscribe({
-      next: (res:any) => {},
+      next: () => {
+        this.$Errormessages = JSON.stringify(this.paymentService.$Errormessages) 
+      },
       error: (e:any) => {
         throw new Error(e)
       }
@@ -62,8 +77,8 @@ export class PesapalPayComponent  {
 
 
   makePayment(){
-    this.paymentService.SubmitOrderRequest(
-      {
+    this.authenticateKeys()
+    this.paymentService.SubmitOrderRequest({
         id: this.id,
         amount: this.amount,
         currency: this.currency,
@@ -84,23 +99,16 @@ export class PesapalPayComponent  {
           postal_code: this.postal_code,
           zip_code: this.zip_code
         }
-      }
-    ).subscribe({
+      }).subscribe({
       next: (res:any) => {
         // do something with tracking ID
+        if (res.status == '500'){
+          this.$Errormessages = JSON.stringify(res)
+        }
         localStorage.setItem("PIUrl", res.redirect_url)
         this.$Url = res.redirect_url
-        // this.dialog.open(PesapalIframeComponent, {
-        //   height: '600px',
-        //   width: '600px',
-        //   data: {
-        //     url: res.redirect_url,
-        //   },
-        // })
       },
-      error: (e:any) => {
-        throw new Error(e)
-      }
+      error: () => {}
     })
   }
 }

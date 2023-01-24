@@ -1,9 +1,5 @@
-<pesapal-pay [class]="'custom-pay-button'" [iframe_width]="'100%'" [button_text]="'Buy me Coffee'" [amount]="100" [currency]="'KES'" [description]="'helllo Pesapal'" [callback_url]="'http://localhost:4200/'" [phone_number]="0712345678" [email_address]="'test@mail.com'"
-    [disabled]="disabled" [styles]="{'cursor': disabled ? 'not-allowed' : 'pointer'}"></pesapal-pay>
+<button pesapal-pay [amount]="8000" [errorMessages]="true" [iframe_width]="'100%'" [errorMessages]="true" [currency]="'EUR'" [description]="'mandazi'" [callback_url]="'http://localhost:4200/'" [phone_number]="0712345678" [email_address]="'test@mail.com'">Pay with Pesapal
+</button>
 
-
-
-
-<button pesapal-pay [iframe_width]="'100%'" [iframe_height]="'600px'" [amount]="45" [currency]="'KES'" [description]="'Chips funga'" [callback_url]="'http://localhost:4200/'" [phone_number]="0712345678" [email_address]="'test@mail.com'">
-        button with directive
-    </button>
+<pesapal-pay [errorMessages]="true" [amount]="1000" [currency]="'USD'" [description]="'chapo'" [callback_url]="'http://localhost:4200/'" [phone_number]="0712345678" [email_address]="'test@mail.com'" [styles]="{'background-color': 'pink', 'font-size': '16px'}"
+    [button_text]="'Buy me coffee'"></pesapal-pay>

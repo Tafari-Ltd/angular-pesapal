@@ -231,6 +231,12 @@ export class AppModule {}
         <td>false</td>
         <td>iframe height</td>
     </tr>
+    <tr>
+        <td>@Input() errorMessages: boolean </td>
+        <td>`false`</td>
+        <td>false</td>
+        <td>Show error messages</td>
+    </tr>
 </table>
 
 

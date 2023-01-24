@@ -39,31 +39,31 @@ export class AppModule {}
  There are two available options
 
 * **PesapalPayComponent**: Renders a button which when clicked loads Pesapal in an iframe
-```html
-<pesapal-pay
-  [amount]="100"  
-  [currency]="'KES'" 
-  [description]="'chapo'" 
-  [callback_url]="'http://localhost:4200/'" 
-  [phone_number]="0712345678" 
-  [email_address]="'test@mail.com'" 
-  [styles]="{'background-color': 'pink', 'font-size': '16px'}"
-  [button_text]="'Buy me coffee'"
-></pesapal-pay>
-```
+  ```html
+    <pesapal-pay
+      [amount]="100"  
+      [currency]="'KES'" 
+      [description]="'chapo'" 
+      [callback_url]="'http://localhost:4200/'" 
+      [phone_number]="0712345678" 
+      [email_address]="'test@mail.com'" 
+      [styles]="{'background-color': 'pink', 'font-size': '16px'}"
+      [button_text]="'Buy me coffee'"
+    ></pesapal-pay>
+  ```
 
 *  **PesapalPayDirective**: A directive that loads Pesapal in an iframe when clicked
 ```html
-<button
-  pesapal-pay
-  [amount]="100"  
-  [currency]="'KES'" 
-  [description]="'mandazi'" 
-  [callback_url]="'http://localhost:4200/'" 
-  [phone_number]="0712345678" 
-  [email_address]="'test@mail.com'" 
->Pay with Pesapal
-</button>
+    <button
+      pesapal-pay
+      [amount]="100"  
+      [currency]="'KES'" 
+      [description]="'mandazi'" 
+      [callback_url]="'http://localhost:4200/'" 
+      [phone_number]="0712345678" 
+      [email_address]="'test@mail.com'" 
+  >Pay with Pesapal
+  </button>
 ```
   > For more information check out [Pesapal's documentation](https://developer.pesapal.com)
 
@@ -230,6 +230,12 @@ export class AppModule {}
         <td>`600px`</td>
         <td>false</td>
         <td>iframe height</td>
+    </tr>
+    <tr>
+        <td>@Input() errorMessages: boolean </td>
+        <td>`false`</td>
+        <td>false</td>
+        <td>Show error messages</td>
     </tr>
 </table>
 

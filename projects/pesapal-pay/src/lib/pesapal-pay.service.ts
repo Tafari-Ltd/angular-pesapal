@@ -8,6 +8,7 @@ import { PESAPAL_CONSUMERS } from './pesapal.token';
   providedIn: 'root'
 })
 export class PesapalPayService {
+  public $Errormessages:any
 
   constructor(
     private http: HttpClient,
@@ -24,7 +25,9 @@ export class PesapalPayService {
       consumer_secret: this.token.consumer_secret
     }
     ).pipe(map((res:any)=>{
-      // console.log("res:", res)
+      if (res.status == '500'){
+        this.$Errormessages = res
+      }
       localStorage.setItem("Ptoken", res.token)
     }))
   }
