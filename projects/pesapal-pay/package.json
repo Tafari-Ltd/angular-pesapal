@@ -1,6 +1,6 @@
 {
     "name": "pesapal-pay",
-    "version": "1.1.0",
+    "version": "1.4.2",
     "description": "Angular wrapper for Pesapal API payments",
     "peerDependencies": {
         "@angular/common": "^15.1.0",
