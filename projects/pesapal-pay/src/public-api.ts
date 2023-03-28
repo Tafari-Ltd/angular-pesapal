@@ -10,3 +10,4 @@ export * from './lib/pesapal.data';
 export * from './lib/pesapal.token';
 export * from './lib/iframe.pipe';
 export * from './lib/pesapal-pay.directive';
+export * from './lib/template/template.component';

@@ -69,7 +69,24 @@ export class PesapalPayDirective {
     }
   }
 
+  checkAuth(){
+    if (this.paymentService.$Errormessages){
+      const iframe:any = document.querySelector('.pesapal-iframe')
+      iframe.style.display = 'none';
+      this.div2.style.width = 'fit-content'
+      this.div2.style.background = '#e1e1e1'
+      this.div2.style.fontFamily = 'monospace'
+      this.div2.innerHTML = `
+        <div class="pesapal-error-div">
+        <pre>message:<code>${JSON.stringify(this.paymentService.$Errormessages)}</code></pre>
+        </div>
+        `
+      this.div.style.display = 'none'
+    }
+  }
+
   makePayment(){
+    this.checkAuth()
     this.paymentService.SubmitOrderRequest(
       {
         id: this.id,

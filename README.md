@@ -194,7 +194,7 @@ export class AppModule {}
         <td>A valid URL which Pesapal will redirect your clients to incase they click on cancel request while on the Payment link.</td>
     </tr>
     <tr>
-        <td>@Input() disabled: boolean </td>
+        <td>@Input() disabled: boolean* </td>
         <td>`false`</td>
         <td>false</td>
         <td>Whether the component is disabled.
@@ -202,19 +202,19 @@ export class AppModule {}
 </td>
     </tr>
     <tr>
-        <td>@Input() button_text: string</td>
+        <td>@Input() button_text: string*</td>
         <td>`Pay with Pesapal`</td>
         <td>false</td>
         <td>Button text button</td>
     </tr>
     <tr>
-        <td>@Input() class: string </td>
+        <td>@Input() class: string* </td>
         <td>undefined</td>
         <td>false</td>
         <td>Button class name</td>
     </tr>
     <tr>
-        <td>@Input() styles: object</td>
+        <td>@Input() styles: object* </td>
         <td>{}</td>
         <td>false</td>
         <td>CSS stylings, eg {fontColor: 'red'} (not available for inline embed)</td>
@@ -238,7 +238,7 @@ export class AppModule {}
         <td>Show error messages</td>
     </tr>
 </table>
-
+* Not available in directive
 
   ### 4. Example using Angular Forms
   In your `.ts` file,

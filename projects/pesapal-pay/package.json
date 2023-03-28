@@ -1,10 +1,11 @@
 {
     "name": "pesapal-pay",
-    "version": "1.4.2",
+    "version": "1.4.4",
     "description": "Angular wrapper for Pesapal API payments",
     "peerDependencies": {
         "@angular/common": "^15.1.0",
-        "@angular/core": "^15.1.0"
+        "@angular/core": "^15.1.0",
+        "@angular/material": "^15.1.1"
     },
     "bugs": {
         "url": "https://github.com/kibetmasi/angular-pesapal/issues"
@@ -26,6 +27,7 @@
         "tanzania"
     ],
     "dependencies": {
+        "@angular/material": "^15.1.1",
         "tslib": "^2.3.0"
     },
     "sideEffects": false
