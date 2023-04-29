@@ -1,6 +1,6 @@
 {
     "name": "pesapal-pay",
-    "version": "1.4.4",
+    "version": "1.4.8",
     "description": "Angular wrapper for Pesapal API payments",
     "peerDependencies": {
         "@angular/common": "^15.1.0",
@@ -16,7 +16,8 @@
         "url": "git+https://github.com/kibetmasi/angular-pesapal"
     },
     "author": {
-        "name": "masi kibe"
+        "name": "masi kibe",
+        "email": "masikibe@gmail.com"
     },
     "homepage": "https://github.com/kibetmasi/angular-pesapal",
     "keywords": [
@@ -30,5 +31,12 @@
         "@angular/material": "^15.1.1",
         "tslib": "^2.3.0"
     },
-    "sideEffects": false
+    "sideEffects": false,
+    "scripts": {
+        "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build",
+        "watch": "ng build --watch --configuration development",
+        "test": "ng test"
+    }
 }

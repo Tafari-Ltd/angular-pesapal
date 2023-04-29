@@ -3,6 +3,8 @@
 
 > This is an angular module that abstracts the complexity of making Pesapal payments with Angular.
 
+  [Demo](https://stackblitz.com/edit/angular-3pqrkk?file=src%2Fmain.ts) 
+
 ## USAGE
 
 ### 1. Install the module
@@ -273,4 +275,4 @@ In your `.html` file,
         ...
         ></ppesapal-pay>
     </form>
-  ```
+  ```   
