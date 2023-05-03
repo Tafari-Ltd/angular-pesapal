@@ -3,6 +3,8 @@
 
 > This is an angular module that abstracts the complexity of making Pesapal payments with Angular.
 
+  [Demo](https://stackblitz.com/edit/angular-3pqrkk?file=src%2Fmain.ts) 
+
 ## USAGE
 
 ### 1. Install the module
@@ -36,9 +38,9 @@ export class AppModule {}
 
 
 ### 3. Implement in your application
- There are two available options
+ There are three available options
 
-* **PesapalPayComponent**: Renders a button which when clicked loads Pesapal in an iframe
+***PesapalPayComponent**: Renders a button which when clicked loads Pesapal in an iframe
   ```html
     <pesapal-pay
       [amount]="100"  
@@ -52,7 +54,7 @@ export class AppModule {}
     ></pesapal-pay>
   ```
 
-*  **PesapalPayDirective**: A directive that loads Pesapal in an iframe when clicked
+***PesapalPayDirective**: A directive that loads Pesapal in an iframe when clicked
 ```html
     <button
       pesapal-pay
@@ -64,6 +66,10 @@ export class AppModule {}
       [email_address]="'test@mail.com'" 
   >Pay with Pesapal
   </button>
+```
+***PesapalPayTemplate**: Renders a payment form on a dialog
+```html
+    <pesapal-template></pesapal-template>
 ```
   > For more information check out [Pesapal's documentation](https://developer.pesapal.com)
 
@@ -194,7 +200,7 @@ export class AppModule {}
         <td>A valid URL which Pesapal will redirect your clients to incase they click on cancel request while on the Payment link.</td>
     </tr>
     <tr>
-        <td>@Input() disabled: boolean* </td>
+        <td>@Input() disabled: boolean </td>
         <td>`false`</td>
         <td>false</td>
         <td>Whether the component is disabled.
@@ -202,19 +208,19 @@ export class AppModule {}
 </td>
     </tr>
     <tr>
-        <td>@Input() button_text: string*</td>
+        <td>@Input() button_text: string</td>
         <td>`Pay with Pesapal`</td>
         <td>false</td>
         <td>Button text button</td>
     </tr>
     <tr>
-        <td>@Input() class: string* </td>
+        <td>@Input() class: string </td>
         <td>undefined</td>
         <td>false</td>
         <td>Button class name</td>
     </tr>
     <tr>
-        <td>@Input() styles: object* </td>
+        <td>@Input() styles: object</td>
         <td>{}</td>
         <td>false</td>
         <td>CSS stylings, eg {fontColor: 'red'} (not available for inline embed)</td>
@@ -238,7 +244,7 @@ export class AppModule {}
         <td>Show error messages</td>
     </tr>
 </table>
-* Not available in directive
+
 
   ### 4. Example using Angular Forms
   In your `.ts` file,
@@ -273,4 +279,4 @@ In your `.html` file,
         ...
         ></ppesapal-pay>
     </form>
-  ```
+  ```   
