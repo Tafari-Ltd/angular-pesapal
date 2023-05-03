@@ -38,9 +38,9 @@ export class AppModule {}
 
 
 ### 3. Implement in your application
- There are two available options
+ There are three available options
 
-* **PesapalPayComponent**: Renders a button which when clicked loads Pesapal in an iframe
+***PesapalPayComponent**: Renders a button which when clicked loads Pesapal in an iframe
   ```html
     <pesapal-pay
       [amount]="100"  
@@ -54,7 +54,7 @@ export class AppModule {}
     ></pesapal-pay>
   ```
 
-*  **PesapalPayDirective**: A directive that loads Pesapal in an iframe when clicked
+***PesapalPayDirective**: A directive that loads Pesapal in an iframe when clicked
 ```html
     <button
       pesapal-pay
@@ -66,6 +66,10 @@ export class AppModule {}
       [email_address]="'test@mail.com'" 
   >Pay with Pesapal
   </button>
+```
+***PesapalPayTemplate**: Renders a payment form on a dialog
+```html
+    <pesapal-template></pesapal-template>
 ```
   > For more information check out [Pesapal's documentation](https://developer.pesapal.com)
 
